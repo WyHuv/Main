@@ -154,7 +154,7 @@ function XanaxUILib:CreateWindow(WindowText)
 
 	Top.Name = "Top"
 	Top.Parent = Main
-	Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Top.BackgroundColor3 = Color3.fromRGB(234, 247, 110)
 	Top.BackgroundTransparency = 1.000
 	Top.Size = UDim2.new(0, 421, 0, 30)
 	Top.Image = "rbxassetid://2790382281"
@@ -164,7 +164,7 @@ function XanaxUILib:CreateWindow(WindowText)
 
 	Line2.Name = "Line2"
 	Line2.Parent = Top
-	Line2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Line2.BackgroundColor3 = Color3.fromRGB(234, 247, 110)
 	Line2.BorderSizePixel = 0
 	Line2.Position = UDim2.new(0.277909726, 0, 0.866666675, 0)
 	Line2.Size = UDim2.new(0, 304, 0, 4)
@@ -243,7 +243,7 @@ function XanaxUILib:CreateWindow(WindowText)
 
 		TabBtn.Name = "TabBtn"
 		TabBtn.Parent = TabBtnHolder
-		TabBtn.BackgroundColor3 = Color3.fromRGB(52, 52, 52)
+		TabBtn.BackgroundColor3 = Color3.fromRGB(234, 247, 110)
 		TabBtn.BorderSizePixel = 0
 		TabBtn.Position = UDim2.new(0.055555556, 0, 0, 0)
 		TabBtn.Size = UDim2.new(0, 104, 0, 27)
