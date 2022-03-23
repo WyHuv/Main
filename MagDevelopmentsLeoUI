@@ -94,7 +94,7 @@ function XanaxUILib:CreateWindow(WindowText)
 	Main.Position = UDim2.new(0.28542304, 0, 0.224669605, 0)
 	Main.Size = UDim2.new(0, 421, 0, 250)
 	Main.Image = "rbxassetid://2790382281"
-	Main.ImageColor3 = Color3.fromRGB(219, 68, 103)
+	Main.ImageColor3 = Color3.fromRGB(52, 52, 52)
 	Main.ScaleType = Enum.ScaleType.Slice
 	Main.SliceCenter = Rect.new(4, 4, 252, 252)
 
@@ -224,14 +224,14 @@ function XanaxUILib:CreateWindow(WindowText)
 
 		TabBtn.Name = "TabBtn"
 		TabBtn.Parent = TabBtnHolder
-		TabBtn.BackgroundColor3 = Color3.fromRGB(234, 247, 110)
+		TabBtn.BackgroundColor3 = Color3.fromRGB(219, 68, 103)
 		TabBtn.BorderSizePixel = 0
 		TabBtn.Position = UDim2.new(0.055555556, 0, 0, 0)
 		TabBtn.Size = UDim2.new(0, 104, 0, 27)
 		TabBtn.AutoButtonColor = false
 		TabBtn.Font = Enum.Font.SourceSans
 		TabBtn.Text = SectionName
-		TabBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+		TabBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
 		TabBtn.TextSize = 16.000
 
 		BotomLien.Name = "BotomLien"
