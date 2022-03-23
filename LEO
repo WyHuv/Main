@@ -1,26 +1,26 @@
-local MagDevelopmentsLibUI = {}
+local XanaxUILib = {}
 
-MagDevelopmentsLibUI.flags = {}
-MagDevelopmentsLibUI.flags.toggles = {}
-MagDevelopmentsLibUI.flags.sliders = {}
-MagDevelopmentsLibUI.functions = {}
-MagDevelopmentsLibUI.currentTab = nil
+XanaxUILib.flags = {}
+XanaxUILib.flags.toggles = {}
+XanaxUILib.flags.sliders = {}
+XanaxUILib.functions = {}
+XanaxUILib.currentTab = nil
 
 local inputService = game:GetService("UserInputService")
 local ts = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
 
-function MagDevelopmentsUI.functions:DestroyGUI()
-	if game.CoreGui:FindFirstChild("MagDevelopmentsUI") then game.CoreGui.MagDevelopmentsUI:Destroy() end
+function XanaxUILib.functions:DestroyGUI()
+	if game.CoreGui:FindFirstChild("XanaxLib") then game.CoreGui.XanaxLib:Destroy() end
 end
-MagDevelopmentsUI.functions:DestroyGUI() 
-function MagDevelopmentsLibUI.functions:Tween(Object, TweenData, Data)
+XanaxUILib.functions:DestroyGUI() 
+function XanaxUILib.functions:Tween(Object, TweenData, Data)
 	if TweenData == "Default" then TweenData = {Time = 0.1, Style = "Linear", Direction = "InOut"} end
 	ts:Create(Object, TweenInfo.new(TweenData.Time, Enum.EasingStyle[TweenData.Style], Enum.EasingDirection[TweenData.Direction]), Data):Play()
 end
 
 -- Drag function by Poly --
-function MagDevelopmentsUI.functions:Drag(frame,hold)
+function XanaxUILib.functions:Drag(frame,hold)
     if not hold then hold = frame end
     local dragging
     local dragInput
@@ -59,20 +59,20 @@ function MagDevelopmentsUI.functions:Drag(frame,hold)
     end)
 end
 
-function MagDevelopmentsLibUI.functions:ChangeSection(NewSection)
-	if MagDevelopmentsLibUI.currentTab == NewSection then return end
-	if MagDevelopmentsLibUI.currentTab == nil then
-		MagDevelopmentsLibUI.currentTab = NewSection
-		MagDevelopmentsLibUI.currentTab.Visible = true
+function XanaxUILib.functions:ChangeSection(NewSection)
+	if XanaxUILib.currentTab == NewSection then return end
+	if XanaxUILib.currentTab == nil then
+		XanaxUILib.currentTab = NewSection
+		XanaxUILib.currentTab.Visible = true
 		return		
 	end
-	MagDevelopmentsLibUI.currentTab.Visible = false
-	MagDevelopmentsLibUI.currentTab = NewSection
+	XanaxUILib.currentTab.Visible = false
+	XanaxUILib.currentTab = NewSection
 	NewSection.Visible = true
 end
 
-function MagDevelopmentsLibUI:CreateWindow(WindowText)
-	local MagDevelopmentsLib = Instance.new("ScreenGui")
+function XanaxUILib:CreateWindow(WindowText)
+	local XanaxLib = Instance.new("ScreenGui")
 	local Main = Instance.new("ImageButton")
 	local TabBtns = Instance.new("ImageButton")
 	local Line1 = Instance.new("Frame")
@@ -84,11 +84,11 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
 	local TabTxt = Instance.new("TextLabel")
 	local TabNameStatus = Instance.new("TextLabel")
 	
-	MagDevelopmentsLib.Name = "MagDevelopmentsLib"
-	MagDevelopmentsLib.Parent = game:GetService("CoreGui")
+	XanaxLib.Name = "XanaxLib"
+	XanaxLib.Parent = game:GetService("CoreGui")
 
 	Main.Name = "Main"
-	Main.Parent = MagDevelopmentsLib
+	Main.Parent = XanaxLib
 	Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Main.BackgroundTransparency = 1.000
 	Main.Position = UDim2.new(0.28542304, 0, 0.224669605, 0)
@@ -183,7 +183,7 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
 	TabNameStatus.TextColor3 = Color3.fromRGB(255, 255, 255)
 	TabNameStatus.TextSize = 14.000
 	TabNameStatus.TextXAlignment = Enum.TextXAlignment.Right
-	MagDevelopmentsLibUI.functions:Drag(Main, UiTitle)
+	XanaxUILib.functions:Drag(Main, UiTitle)
 	local Sections = {}
 	function Sections:CreateSection(SectionName)
 		local TabMain = Instance.new("Frame")
@@ -246,12 +246,12 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
 		TopLien.BackgroundColor3 = Color3.fromRGB(43, 43, 43)
 		TopLien.BorderSizePixel = 0
 		TopLien.Size = UDim2.new(1, 0, 0, 1)
-		if MagDevelopmentsLibUI.currentTab == nil then
-			MagDevelopmentsLibUI.functions:ChangeSection(TabMain)
+		if XanaxUILib.currentTab == nil then
+			XanaxUILib.functions:ChangeSection(TabMain)
 			TabNameStatus.Text = SectionName .. "  "
 		end
 		TabBtn.MouseButton1Click:Connect(function()
-			MagDevelopmentsLibUI.functions:ChangeSection(TabMain)
+			XanaxUILib.functions:ChangeSection(TabMain)
 			TabNameStatus.Text = SectionName .. "  "
 		end)
 		
@@ -290,7 +290,7 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
 			Button.MouseButton1Click:Connect(onclick)
 		end
 		function ObjectTbl:CreateToggle(toggleTxt, flag, func)
-			MagDevelopmentsLibUI.flags.toggles[flag] = false
+			XanaxUILib.flags.toggles[flag] = false
 			local isFunctionToggle = false
 			if func then
 				isFunctionToggle = true
@@ -340,9 +340,9 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
 			ToggleStatus.SliceCenter = Rect.new(32, 32, 224, 224)
 						
 			local function togglefunc()
-				MagDevelopmentsLibUI.flags.toggles[flag] = not MagDevelopmentsLibUI.flags.toggles[flag]
-				if isFunctionToggle then func(MagDevelopmentsLibUI.flags.toggles[flag]) end
-				MagDevelopmentsLibUI.functions:Tween(ToggleStatus, {Time = 0.1, Style = "Linear", Direction = "InOut"}, {ImageColor3 = MagDevelopmentsLibUI.flags.toggles[flag] and Color3.fromRGB(0, 255, 50) or Color3.fromRGB(255, 20, 24)})
+				XanaxUILib.flags.toggles[flag] = not XanaxUILib.flags.toggles[flag]
+				if isFunctionToggle then func(XanaxUILib.flags.toggles[flag]) end
+				XanaxUILib.functions:Tween(ToggleStatus, {Time = 0.1, Style = "Linear", Direction = "InOut"}, {ImageColor3 = XanaxUILib.flags.toggles[flag] and Color3.fromRGB(0, 255, 50) or Color3.fromRGB(255, 20, 24)})
 			end
 			
 			Toggle.MouseButton1Click:Connect(togglefunc)
@@ -383,7 +383,7 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
 	        if func then     
 	           isFunc = true 
 	        end
-	        MagDevelopmentsLibUI.flags.sliders[flag] = min
+	        XanaxUILib.flags.sliders[flag] = min
 	        
 	        local Slider = Instance.new("TextButton")
             local SLIDERBotomLien = Instance.new("Frame")
@@ -467,9 +467,9 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
                         Value = math.floor(Value);
                     end;
                     Value = tonumber(string.format("%.2f", Value));
-                    MagDevelopmentsLibUI.functions:Tween(sliderfiller, "Default", {Size = UDim2.new(percent, 0, 1, 0)})
+                    XanaxUILib.functions:Tween(sliderfiller, "Default", {Size = UDim2.new(percent, 0, 1, 0)})
                     sliderval.Text = tostring(Value) .. " / " .. max;
-                    MagDevelopmentsLibUI.flags.sliders[flag] = Value;
+                    XanaxUILib.flags.sliders[flag] = Value;
                     if isFunc then func(Value) end
                 end);
             end);
@@ -484,4 +484,4 @@ function MagDevelopmentsLibUI:CreateWindow(WindowText)
 	end)
 	return Sections
 end
-return MagDevelopmentsUI
+return XanaxUILib
