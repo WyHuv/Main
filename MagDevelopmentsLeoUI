@@ -282,7 +282,7 @@ function XanaxUILib:CreateWindow(WindowText)
 
 			Button.Name = "Button"
 			Button.Parent = ObjectHolder
-			Button.BackgroundColor3 = Color3.fromRGB(103, 1, 167)
+			Button.BackgroundColor3 = Color3.fromRGB(219, 68, 103)
 			Button.BorderSizePixel = 0
 			Button.Position = UDim2.new(0.166666672, 0, 0.122727275, 0)
 			Button.Size = UDim2.new(0, 267, 0, 30)
@@ -374,7 +374,7 @@ function XanaxUILib:CreateWindow(WindowText)
 
 			Label.Name = "Label"
 			Label.Parent = ObjectHolder
-			Label.BackgroundColor3 = Color3.fromRGB(103, 1, 167)
+			Label.BackgroundColor3 = Color3.fromRGB(219, 68, 103)
 			Label.BorderSizePixel = 0
 			Label.Position = UDim2.new(0.0549999997, 0, 0.302727312, 0)
 			Label.Size = UDim2.new(0, 267, 0, 23)
