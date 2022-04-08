@@ -21,7 +21,7 @@ game.StarterGui:SetCore(
     "SendNotification",
     {
         Title = "Credis",
-        Text = "!Mag Developments#2173 "
+        Text = "Verexus#1479"
          
     }
 )
@@ -36,6 +36,6 @@ game.StarterGui:SetCore(
 )
 
 
-setclipboard("https://discord.gg/gbCKX4PzRk")
+setclipboard("https://discord.gg/sDQ8bM3kJW")
 
 
